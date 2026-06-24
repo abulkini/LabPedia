@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>LabPedia - Kamus Medis</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#adc6ff",
+                        "background": "#10131a",
+                        "surface-tint": "#adc6ff",
+                        "on-primary": "#002e6a",
+                        "secondary-fixed": "#6ffbbe",
+                        "primary-container": "#4d8eff",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "on-secondary-container": "#00311f",
+                        "inverse-primary": "#005ac2",
+                        "surface-bright": "#363941",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container-high": "#272a31",
+                        "on-surface-variant": "#c2c6d6",
+                        "on-background": "#e1e2ec",
+                        "surface-container-highest": "#32353c",
+                        "inverse-surface": "#e1e2ec",
+                        "secondary-container": "#00a572",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "inverse-on-surface": "#2e3038",
+                        "on-secondary": "#003824",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-primary-fixed": "#001a42",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#10131a",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed": "#002113",
+                        "tertiary-fixed": "#ffdcc6",
+                        "secondary": "#4edea3",
+                        "surface-dim": "#10131a",
+                        "tertiary-container": "#df7412",
+                        "on-tertiary-fixed": "#311400",
+                        "secondary-fixed-dim": "#4edea3",
+                        "outline-variant": "#424754",
+                        "tertiary": "#ffb786",
+                        "surface-container": "#1d2027",
+                        "surface-container-low": "#191b23",
+                        "on-tertiary": "#502400",
+                        "error-container": "#93000a",
+                        "on-error": "#690005",
+                        "outline": "#8c909f",
+                        "on-surface": "#e1e2ec",
+                        "surface-variant": "#32353c",
+                        "surface-container-lowest": "#0b0e15",
+                        "primary-fixed": "#d8e2ff",
+                        "on-tertiary-container": "#461f00",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#00285d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": [
+                            "Inter"
+                        ],
+                        "body-md": [
+                            "Inter"
+                        ],
+                        "headline-lg": [
+                            "Inter"
+                        ],
+                        "title-md": [
+                            "Inter"
+                        ],
+                        "headline-lg-mobile": [
+                            "Inter"
+                        ],
+                        "display-lg": [
+                            "Inter"
+                        ],
+                        "label-md": [
+                            "Inter"
+                        ],
+                        "code-sm": [
+                            "Inter"
+                        ]
+                    },
+                    "fontSize": {
+                        "body-lg": [
+                            "18px",
+                            {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "body-md": [
+                            "16px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-lg": [
+                            "32px",
+                            {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "title-md": [
+                            "20px",
+                            {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "headline-lg-mobile": [
+                            "16px",
+                            {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "display-lg": [
+                            "48px",
+                            {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "label-md": [
+                            "14px",
+                            {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "code-sm": [
+                            "13px",
+                            {
+                                "lineHeight": "18px",
+                                "fontWeight": "400"
+                            }
+                        ]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b121c;
+            color: #eef2ff;
+        }
+
+        body,
+        input,
+        button,
+        select,
+        textarea {
+            color: #eef2ff;
+        }
+
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .glass-modal {
+            background-color: rgba(12, 17, 26, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            box-shadow: 0 0 60px rgba(77, 142, 255, 0.12);
+        }
+
+        input::placeholder {
+            color: rgba(226, 232, 255, 0.65);
+        }
+
+        .text-on-surface {
+            color: #f4f7ff !important;
+        }
+
+        .text-on-surface-variant {
+            color: #cfd6ea !important;
+        }
+
+        .text-outline-variant {
+            color: #9ea9c1 !important;
+        }
+
+        .hover\:bg-white\/5:hover {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .border-white\/10 {
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+
+        /* Hide scrollbar for tabs */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        [id^="modal-content-"] {
+            max-width: 80% !important;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col font-body-md text-body-md antialiased pt-20">
+    <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-white/10 shadow-sm transition-all duration-300 h-20">
+        <div
+            class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-full">
+            <div class="flex items-center gap-4">
+                <a class="font-display-lg text-display-lg text-primary tracking-tight" href="../index.html">LabPedia</a>
+            </div>
+            <div class="hidden md:flex items-center gap-6">
+                <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 py-2 px-3 rounded-DEFAULT font-title-md text-title-md"
+                    href="../index.html">Beranda</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 py-2 px-3 rounded-DEFAULT font-title-md text-title-md"
+                    href="../kalkulator/calc.html">Kalkulator</a>
+                <a class="text-primary font-bold border-b-2 border-primary pb-1 font-title-md text-title-md"
+                    href="dict.html">Kamus</a>
+            </div>
+            <button id="mobile-nav-toggle" onclick="toggleMobileNavMenu()" type="button"
+                class="md:hidden inline-flex items-center justify-center rounded-full border border-white/10 bg-surface-container-highest p-2 text-primary hover:bg-surface-container transition-colors">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <div id="mobile-nav-menu"
+            class="md:hidden hidden absolute inset-x-0 top-full z-40 bg-surface/95 border-t border-white/10 shadow-sm">
+            <div class="flex flex-col gap-1 px-4 py-3">
+                <a class="text-on-surface hover:bg-surface-container-high transition-colors rounded-DEFAULT px-3 py-3 font-body-md"
+                    href="../index.html">Beranda</a>
+                <a class="text-on-surface hover:bg-surface-container-high transition-colors rounded-DEFAULT px-3 py-3 font-body-md"
+                    href="../kalkulator/calc.html">Kalkulator</a>
+                <a class="text-on-surface hover:bg-surface-container-high transition-colors rounded-DEFAULT px-3 py-3 font-body-md"
+                    href="dict.html">Kamus</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+        <!-- Header & Pencarian -->
+        <div class="mb-12 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+                <h1 class="font-display-lg text-display-lg text-on-surface mb-2">Kamus Medis</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Referensi lengkap untuk istilah
+                    laboratorium klinis, parameter, dan signifikansi diagnostik.</p>
+            </div>
+            <div class="relative w-full md:w-96">
+                <span
+                    class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+                <input
+                    class="w-full bg-surface-container-high border border-outline-variant rounded-full py-3 pl-12 pr-4 text-on-surface placeholder-on-surface-variant/50 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all glass-panel"
+                    id="searchInput" placeholder="Cari parameter (mis., Hemoglobin)..." type="text" />
+            </div>
+        </div>
+        <!-- Category Tabs -->
+        <div class="md:hidden mb-4">
+            <select id="mobileCategorySelect" onchange="setCategory(this.value)"
+                class="w-full rounded-full border border-outline-variant bg-surface-container-highest px-4 py-3 text-on-surface font-body-md">
+                <option value="all">Semua Istilah</option>
+                <option value="hematologi">Hematologi</option>
+                <option value="kimia klinik">Kimia Klinik</option>
+                <option value="imunologi">Imunologi</option>
+            </select>
+        </div>
+        <div class="hidden md:flex overflow-x-auto no-scrollbar gap-4 mb-8 pb-2 border-b border-white/10">
+            <button id="tab-all" onclick="setCategory('all')"
+                class="px-6 py-2 rounded-t-lg bg-surface-container-highest text-primary font-title-md text-title-md border-b-2 border-primary whitespace-nowrap">Semua
+                Istilah</button>
+            <button id="tab-hematologi" onclick="setCategory('hematologi')"
+                class="px-6 py-2 text-on-surface-variant hover:text-on-surface font-title-md text-title-md whitespace-nowrap transition-colors">Hematologi</button>
+            <button id="tab-kimia" onclick="setCategory('kimia klinik')"
+                class="px-6 py-2 text-on-surface-variant hover:text-on-surface font-title-md text-title-md whitespace-nowrap transition-colors">Kimia
+                Klinik</button>
+            <button id="tab-imunologi" onclick="setCategory('imunologi')"
+                class="px-6 py-2 text-on-surface-variant hover:text-on-surface font-title-md text-title-md whitespace-nowrap transition-colors">Imunologi</button>
+        </div>
+        <!-- Grid Kamus -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="dictionaryGrid">
+            <!-- Kartu Istilah 1 -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-hgb')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Hemoglobin (Hb)</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Protein dalam sel darah merah yang mengangkut oksigen
+                    dari paru-paru ke jaringan tubuh dan kembali membawa karbon dioksida ke paru-paru.</p>
+            </div>
+            <!-- Kartu Istilah 2 -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-wbc')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Leukosit (WBC)</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Sel darah putih adalah bagian dari sistem kekebalan
+                    tubuh. Mereka membantu tubuh melawan infeksi dan penyakit lain.</p>
+            </div>
+            <!-- Kartu Istilah 3 -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-crp')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            C-Reactive Protein (CRP)</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Protein yang diproduksi hati dan meningkat saat ada
+                    peradangan. Levelnya sering digunakan untuk mendeteksi respons inflamasi.</p>
+            </div>
+            <!-- Kartu Istilah 4 -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-glucose')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Glukosa Puasa</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                            Klinik</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Tes yang mengukur kadar gula darah setelah tidak makan
+                    selama minimal 8 jam.</p>
+            </div>
+            <!-- Kartu Istilah 5 -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-trombosit')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Trombosit</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Trombosit adalah fragmen sel yang membantu pembekuan
+                    darah dan penting untuk menghentikan perdarahan serta menyembuhkan luka.</p>
+            </div>
+            <!-- Kartu Istilah 6 -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-eritrosit')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Eritrosit</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Sel darah merah mengangkut oksigen dari paru-paru ke
+                    jaringan dan membawa karbon dioksida kembali ke paru-paru untuk dikeluarkan.</p>
+            </div>
+            <!-- Kartu Istilah 7 -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-kolesterol')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Total Kolesterol</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                            Klinik</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Total kolesterol adalah jumlah HDL, LDL, dan lipid lain
+                    dalam darah yang digunakan untuk menilai risiko kardiovaskular.</p>
+            </div>
+            <!-- Kartu Parameter Trigliserida -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-trigliserida')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Trigliserida</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                            Klinik</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Lipid darah yang mencerminkan cadangan energi tubuh dan
+                    risiko metabolik jika kadarnya terlalu tinggi.</p>
+            </div>
+            <!-- Kartu Parameter HDL -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-hdl')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            HDL</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                            Klinik</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">High-density lipoprotein dikenal sebagai kolesterol baik
+                    yang membantu membersihkan arteri dari lemak berlebih.</p>
+            </div>
+            <!-- Kartu Parameter LDL -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-ldl')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            LDL</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                            Klinik</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Low-density lipoprotein adalah kolesterol jahat yang
+                    dapat mengendap pada dinding arteri dan meningkatkan risiko kardiovaskular.</p>
+            </div>
+            <!-- Kartu Parameter Ureum -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-ureum')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Ureum</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                            Klinik</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Produk limbah metabolisme protein yang diekskresikan
+                    ginjal dan sering digunakan untuk menilai fungsi ginjal serta status cairan.</p>
+            </div>
+            <!-- Kartu Parameter Kreatinin -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-kreatinin')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Kreatinin</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                            Klinik</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Produk samping metabolisme otot yang menjadi indikator
+                    penting untuk menilai kesehatan fungsi ginjal.</p>
+            </div>
+            <!-- Kartu Parameter SGOT -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-sgot')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            SGOT (AST)</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                            Klinik</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Enzim yang ditemukan pada hati dan otot, meningkat pada
+                    cedera hepatik atau kerusakan jaringan.</p>
+            </div>
+            <!-- Kartu Parameter SGPT -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-sgpt')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            SGPT (ALT)</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                            Klinik</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Enzim hati yang memberitahu tentang kerusakan sel hati,
+                    terutama pada hepatitis atau toksisitas obat.</p>
+            </div>
+            <!-- Kartu Parameter HIV -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-hiv')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            HIV</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Tes untuk mendeteksi antibodi atau antigen HIV yang
+                    menandakan infeksi virus imunodefisiensi manusia.</p>
+            </div>
+            <!-- Kartu Parameter Widal -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-widal')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Widal</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Uji serologi yang mencari antibodi terhadap bakteri
+                    Salmonella typhi dan paratyphi dalam darah.</p>
+            </div>
+            <!-- Kartu Parameter Sifilis -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-sifilis')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Sifilis</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Tes serologi untuk mendeteksi infeksi bakteri Treponema
+                    pallidum pada berbagai stadium penyakit.</p>
+            </div>
+            <!-- Kartu Parameter HBsAg -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-hbsag')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            HBsAg</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Antigen permukaan virus hepatitis B yang menunjukkan
+                    infeksi hepatitis B akut atau kronis.</p>
+            </div>
+            <!-- Kartu Parameter HCV -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-hcv')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            HCV</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Tes antibodi atau antigen virus hepatitis C yang memberi
+                    indikasi infeksi kronis atau akut.</p>
+            </div>
+            <!-- Kartu Parameter Ns1 -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-ns1')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Ns1</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Antigen NS1 dengue adalah indikator dini infeksi virus
+                    dengue pada tahap akut penyakit.</p>
+            </div>
+            <!-- Kartu Parameter IgG/IgM Dengue -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-iggigm-dengue')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            IgG/IgM Dengue</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Antibodi IgM dan IgG terhadap virus dengue membantu
+                    membedakan infeksi akut dari infeksi masa lalu.</p>
+            </div>
+            <!-- Kartu Parameter RDT Malaria -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-rdt-malaria')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            RDT Malaria</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Tes cepat diagnostik yang mendeteksi antigen malaria
+                    dalam darah untuk mengonfirmasi infeksi Plasmodium.</p>
+            </div>
+            <!-- Kartu Parameter Tes Kehamilan -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-tes-kehamilan')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Tes Kehamilan</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Tes yang mendeteksi hormon hCG, biasanya untuk
+                    mengonfirmasi kehamilan awal.</p>
+            </div>
+            <!-- Kartu Parameter Golongan Darah -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-golongan-darah')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Golongan Darah</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Prosedur untuk menentukan tipe darah ABO dan rhesus,
+                    penting untuk transfusi dan kehamilan.</p>
+            </div>
+            <!-- Kartu Parameter Gula Darah Sewaktu (GDS) -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-gds')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Gula Darah Sewaktu (GDS)</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                            Klinik</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Pengukuran kadar glukosa darah pada saat pengambilan
+                    sampel tanpa memperhatikan waktu makan.</p>
+            </div>
+            <!-- Kartu Parameter Asam Urat -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-asam-urat')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Asam Urat</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                            Klinik</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Metabolit purin yang diukur untuk menilai risiko asam
+                    urat tinggi dan gout.</p>
+            </div>
+            <!-- Kartu Parameter Hematokrit -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-hematokrit')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Hematokrit</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Proporsi volume darah yang ditempati oleh sel darah
+                    merah, penting untuk mengevaluasi anemia dan dehidrasi.</p>
+            </div>
+            <!-- Kartu Parameter Laju Endap Darah (LED) -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-led')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            Laju Endap Darah (LED)</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Tes kecepatan pengendapan sel darah merah yang digunakan
+                    untuk menilai adanya peradangan atau infeksi dalam tubuh.</p>
+            </div>
+            <!-- Kartu Parameter MCV -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-mcv')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            MCV</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Mean corpuscular volume mengukur ukuran rata-rata sel
+                    darah merah dan membantu klasifikasi anemia.</p>
+            </div>
+            <!-- Kartu Parameter MCH -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-mch')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            MCH</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Mean corpuscular hemoglobin adalah rata-rata kandungan
+                    hemoglobin per sel darah merah.</p>
+            </div>
+            <!-- Kartu Parameter MCHC -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-mchc')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            MCHC</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Mean corpuscular hemoglobin concentration mengukur
+                    konsentrasi hemoglobin dalam volume sel darah merah.</p>
+            </div>
+            <!-- Kartu Parameter RDW -->
+            <div class="glass-panel rounded-xl p-6 hover:bg-surface-container-high transition-all cursor-pointer group"
+                onclick="openModal('modal-rdw')">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3
+                            class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">
+                            RDW</h3>
+                        <span
+                            class="inline-block mt-1 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
+                </div>
+                <p class="text-on-surface-variant line-clamp-2">Red cell distribution width mengukur variasi ukuran sel
+                    darah merah dan membantu mengidentifikasi tipe anemia.</p>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="bg-surface-container-lowest w-full pt-12 pb-8 border-t border-white/10 flat no shadows mt-12 relative z-10">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-8">
+            <div class="col-span-1 md:col-span-1 mb-8 md:mb-0">
+                <div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">LabPedia
+                </div>
+                <p class="font-body-sm text-sm text-on-surface-variant/70">Memberikan informasi medis yang akurat dan
+                    terkini.</p>
+            </div>
+            <div class="col-span-1 md:col-span-3 flex flex-wrap gap-4 md:gap-8 md:justify-end items-center">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100 transition-opacity"
+                    href="../privacy.html">Kebijakan Privasi</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100 transition-opacity"
+                    href="../contact.html">Hubungi Saya</a>
+            </div>
+        </div>
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+            <p class="font-body-md text-body-md text-secondary/70 text-sm">
+                © 2026 LabPedia Medical Encyclopedia. All rights reserved. Medical Disclaimer: Information provided is
+                for educational purposes only and does not constitute medical advice.
+            </p>
+        </div>
+    </footer>
+    <!-- Modal (Tersembunyi secara default) -->
+    <!-- Modal: Hemoglobin -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-hgb">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-hgb')"></div>
+        <!-- Modal Content -->
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-hgb">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Hemoglobin (Hb)</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-hgb')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Hemoglobin adalah protein yang mengandung zat besi
+                        dalam sel darah merah yang dapat mengikat oksigen secara reversibel. Protein ini bertanggung
+                        jawab mengangkut oksigen dari paru-paru ke jaringan dan karbon dioksida dari jaringan kembali ke
+                        paru-paru.</p>
+                </div>
+                <div class="mb-8 glass-panel p-4 rounded-lg">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-4">Rentang Referensi (Dewasa)</h4>
+                    <!-- Bilah Rentang: Pria -->
+                    <div class="mb-6">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-on-surface-variant">Pria</span>
+                            <span class="text-primary font-medium">13.8 - 17.2 g/dL</span>
+                        </div>
+                    </div>
+                    <!-- Bilah Rentang: Wanita -->
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-on-surface-variant">Wanita</span>
+                            <span class="text-primary font-medium">12.1 - 15.1 g/dL</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Kadar menurun (Anemia):</strong> Kekurangan zat besi, kehilangan
+                            darah akut atau kronis, hemolisis, supresi sumsum tulang, penyakit ginjal kronis.</li>
+                        <li><strong class="text-error">Kadar meningkat (Polisitemia):</strong> Dehidrasi, hipoksia
+                            kronis (PPOK, ketinggian), polisitemia vera.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-hgb')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Leukosit -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-wbc">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-wbc')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-wbc">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Leukosit (WBC)</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-wbc')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Leukosit adalah sel darah putih yang melindungi
+                        tubuh dari infeksi dan zat asing. Jumlahnya meningkat saat respon imun dan membantu
+                        menghilangkan patogen.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Jumlah WBC rendah:</strong> Dapat menunjukkan supresi sumsum
+                            tulang, infeksi virus, atau penyakit autoimun.</li>
+                        <li><strong class="text-primary">Jumlah WBC tinggi:</strong> Sering menunjukkan infeksi,
+                            peradangan, atau respons stres.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-wbc')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: C-Reactive Protein -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-crp">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-crp')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-crp">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">C-Reactive Protein (CRP)</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-crp')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">CRP adalah protein yang diproduksi hati dan
+                        meningkat cepat saat terjadi peradangan. Ini digunakan sebagai penanda sensitif untuk kondisi
+                        inflamasi akut.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">CRP meningkat:</strong> Menunjukkan peradangan aktif, infeksi,
+                            atau kerusakan jaringan.</li>
+                        <li><strong class="text-primary">CRP normal:</strong> Menunjukkan tidak adanya inflamasi
+                            sistemik yang signifikan.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-crp')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Glukosa Puasa -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-glucose">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-glucose')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-glucose">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Glukosa Puasa</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                        Klinik</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-glucose')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Glukosa puasa mengukur gula darah saat puasa setelah
+                        minimal 8 jam tanpa makanan. Tes ini membantu mendiagnosis diabetes dan menilai kesehatan
+                        metabolik.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Glukosa puasa tinggi:</strong> Dapat menunjukkan diabetes atau
+                            toleransi glukosa yang terganggu.</li>
+                        <li><strong class="text-primary">Glukosa puasa normal:</strong> Menunjukkan metabolisme glukosa
+                            yang baik dan respons insulin yang terkontrol.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-glucose')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Trombosit -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-trombosit">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-trombosit')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-trombosit">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Trombosit</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-trombosit')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Trombosit adalah fragmen sel yang penting untuk
+                        pembekuan darah dan perbaikan luka. Mereka mendukung hemostasis dengan berkumpul di lokasi
+                        cedera pembuluh darah.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Jumlah trombosit rendah:</strong> Meningkatkan risiko perdarahan,
+                            memar, dan dapat menunjukkan kelainan sumsum tulang atau kondisi autoimun.</li>
+                        <li><strong class="text-primary">Jumlah trombosit tinggi:</strong> Dapat meningkatkan risiko
+                            pembekuan, peradangan, atau gangguan mieloproliferatif.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-trombosit')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Eritrosit -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-eritrosit">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-eritrosit')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-eritrosit">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Eritrosit</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-eritrosit')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Eritrosit (sel darah merah) membawa oksigen dari
+                        paru-paru ke jaringan dan mengangkut karbon dioksida kembali ke paru-paru untuk dikeluarkan.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Jumlah eritrosit rendah:</strong> Dapat menunjukkan anemia,
+                            perdarahan, atau produksi sel darah merah yang terganggu.</li>
+                        <li><strong class="text-primary">Jumlah eritrosit tinggi:</strong> Terlihat pada dehidrasi atau
+                            kondisi dengan kebutuhan oksigen meningkat seperti polisitemia vera.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-eritrosit')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Total Kolesterol -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-kolesterol">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-kolesterol')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-kolesterol">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Total Kolesterol</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                        Klinik</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-kolesterol')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Total kolesterol adalah jumlah kolesterol HDL, LDL,
+                        dan VLDL yang diukur dalam darah, digunakan untuk mengevaluasi risiko penyakit jantung.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Total kolesterol tinggi:</strong> Berhubungan dengan risiko
+                            aterosklerosis dan penyakit kardiovaskular yang meningkat.</li>
+                        <li><strong class="text-primary">Rentang yang diinginkan:</strong> Kadar yang lebih rendah
+                            biasanya mencerminkan risiko kardiovaskular yang lebih rendah, terutama jika HDL lebih
+                            tinggi dan LDL lebih rendah.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-kolesterol')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Trigliserida -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-trigliserida">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-trigliserida')">
+        </div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-trigliserida">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Trigliserida</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                        Klinik</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-trigliserida')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Trigliserida adalah bentuk utama lemak dalam darah,
+                        yang berfungsi sebagai penyimpanan energi dan dapat meningkat setelah konsumsi makanan tinggi
+                        lemak atau karbohidrat.</p>
+                </div>
+                <div class="mb-8 glass-panel p-4 rounded-lg">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-4">Rentang Referensi</h4>
+                    <p class="text-on-surface-variant font-body-md">Normal: <strong>0-150 mg/dL</strong>; Perbatasan:
+                        <strong>150-199 mg/dL</strong>; Tinggi: <strong>200 mg/dL ke atas</strong>.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Trigliserida tinggi:</strong> Meningkatkan risiko penyakit
+                            jantung, penyakit arteri koroner, dan pankreatitis akut.</li>
+                        <li><strong class="text-primary">Trigliserida normal:</strong> Biasanya menunjukkan metabolisme
+                            lipid yang lebih baik dan risiko kardiovaskular lebih rendah.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-trigliserida')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: HDL -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-hdl">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-hdl')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-hdl">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">HDL</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                        Klinik</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-hdl')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">HDL adalah high-density lipoprotein, sering disebut
+                        kolesterol baik, yang membantu mengangkut kolesterol dari arteri ke hati untuk dikeluarkan.</p>
+                </div>
+                <div class="mb-8 glass-panel p-4 rounded-lg">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-4">Rentang Referensi</h4>
+                    <p class="text-on-surface-variant font-body-md">Lebih baik: <strong>&gt;60 mg/dL</strong>; Cukup:
+                        <strong>40-59 mg/dL</strong>; Rendah: <strong>
+                            &lt;40 mg/dL</strong>.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-primary">HDL tinggi:</strong> Biasanya melindungi terhadap penyakit
+                            jantung dan aterosklerosis.</li>
+                        <li><strong class="text-error">HDL rendah:</strong> Dapat meningkatkan risiko kardiovaskular,
+                            terutama jika LDL tinggi.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-hdl')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: LDL -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-ldl">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-ldl')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-ldl">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">LDL</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                        Klinik</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-ldl')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">LDL adalah low-density lipoprotein, kolesterol jahat
+                        yang dapat mengendap di dinding arteri dan meningkatkan risiko aterosklerosis.</p>
+                </div>
+                <div class="mb-8 glass-panel p-4 rounded-lg">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-4">Rentang Referensi</h4>
+                    <p class="text-on-surface-variant font-body-md">Optimal: <strong>
+                            &lt;100 mg/dL</strong>; Mendekati optimal: <strong>100-129 mg/dL</strong>; Tinggi:
+                        <strong>&gt;160
+                            mg/dL</strong>.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">LDL tinggi:</strong> Terkait dengan peningkatan risiko penyakit
+                            jantung koroner dan stroke.</li>
+                        <li><strong class="text-primary">LDL rendah:</strong> Umumnya diinginkan untuk mengurangi risiko
+                            kardiovaskular.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-ldl')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Ureum -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-ureum">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-ureum')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-ureum">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Ureum</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                        Klinik</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-ureum')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Ureum adalah produk limbah metabolisme protein yang
+                        dihasilkan oleh hati dan dieliminasi oleh ginjal.</p>
+                </div>
+                <div class="mb-8 glass-panel p-4 rounded-lg">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-4">Rentang Referensi</h4>
+                    <p class="text-on-surface-variant font-body-md">Normal: <strong>7-20 mg/dL</strong>.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Ureum tinggi:</strong> Dapat menunjukkan gangguan fungsi ginjal,
+                            dehidrasi, atau peningkatan katabolisme protein.</li>
+                        <li><strong class="text-primary">Ureum normal:</strong> Menunjukkan ekskresi nitrogen yang wajar
+                            dan fungsi ginjal yang relatif baik.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-ureum')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Kreatinin -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-kreatinin">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-kreatinin')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-kreatinin">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Kreatinin</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                        Klinik</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-kreatinin')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Kreatinin adalah produk limbah metabolisme otot yang
+                        digunakan sebagai indikator utama untuk menilai fungsi ginjal.</p>
+                </div>
+                <div class="mb-8 glass-panel p-4 rounded-lg">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-4">Rentang Referensi</h4>
+                    <p class="text-on-surface-variant font-body-md">Normal: <strong>0.6-1.3 mg/dL</strong> (tergantung
+                        jenis kelamin dan massa otot).</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Kreatinin tinggi:</strong> Sering menunjukkan penurunan laju
+                            filtrasi glomerulus dan gangguan fungsi ginjal.</li>
+                        <li><strong class="text-primary">Kreatinin normal:</strong> Menunjukkan fungsi ginjal yang lebih
+                            baik dalam mengeliminasi produk limbah otot.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-kreatinin')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: SGOT -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-sgot">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-sgot')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-sgot">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">SGOT (AST)</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                        Klinik</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-sgot')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">SGOT atau AST adalah enzim yang ditemukan pada hati,
+                        jantung, dan otot, dan naik ketika terjadi kerusakan atau peradangan jaringan.</p>
+                </div>
+                <div class="mb-8 glass-panel p-4 rounded-lg">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-4">Rentang Referensi</h4>
+                    <p class="text-on-surface-variant font-body-md">Normal: <strong>5-40 U/L</strong>.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">SGOT tinggi:</strong> Dapat mengindikasikan cedera hati, penyakit
+                            otot, atau serangan jantung.</li>
+                        <li><strong class="text-primary">SGOT normal:</strong> Menunjukkan tidak adanya kerusakan
+                            hati/otot yang nyata pada saat pengukuran.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-sgot')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: SGPT -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-sgpt">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-sgpt')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-sgpt">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">SGPT (ALT)</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                        Klinik</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-sgpt')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">SGPT atau ALT adalah enzim hati yang sensitif
+                        terhadap cedera hepatik. Kenaikannya sering terjadi pada peradangan hati dan toksisitas obat.
+                    </p>
+                </div>
+                <div class="mb-8 glass-panel p-4 rounded-lg">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-4">Rentang Referensi</h4>
+                    <p class="text-on-surface-variant font-body-md">Normal: <strong>7-56 U/L</strong>.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">SGPT tinggi:</strong> Umumnya menunjukkan cedera sel hati akibat
+                            hepatitis, alkohol, atau obat-obatan.</li>
+                        <li><strong class="text-primary">SGPT normal:</strong> Menunjukkan fungsi hati yang relatif baik
+                            pada saat pengukuran.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-sgpt')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: HIV -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-hiv">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-hiv')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-hiv">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">HIV</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-hiv')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Tes untuk mendeteksi antibodi atau antigen HIV,
+                        digunakan untuk diagnosis infeksi virus imunodefisiensi manusia.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Positif:</strong> Menunjukkan paparan atau infeksi HIV,
+                            memerlukan konfirmasi lanjutan.</li>
+                        <li><strong class="text-primary">Negatif:</strong> Tidak menunjukkan antibodi atau antigen yang
+                            terdeteksi pada saat pengujian.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-hiv')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Widal -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-widal">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-widal')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-widal">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Widal</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-widal')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Uji serologi yang mengukur antibodi terhadap antigen
+                        Salmonella typhi dan paratyphi, biasanya digunakan pada diagnosis tifus.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Reaksi positif:</strong> Menunjukkan paparan atau infeksi
+                            Salmonella, tetapi memerlukan korelasi klinis.</li>
+                        <li><strong class="text-primary">Reaksi negatif:</strong> Tidak ada antibodi yang terdeteksi
+                            pada waktu pengujian.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-widal')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Sifilis -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-sifilis">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-sifilis')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-sifilis">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Sifilis</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-sifilis')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Tes serologi untuk mendeteksi antibodi terhadap
+                        Treponema pallidum, bakteri penyebab sifilis.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Antibodi positif:</strong> Mungkin menandakan infeksi sifilis
+                            aktif atau riwayat paparan.</li>
+                        <li><strong class="text-primary">Antibodi negatif:</strong> Menunjukkan tidak ada bukti
+                            serologis infeksi pada saat pemeriksaan.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-sifilis')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: HBsAg -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-hbsag">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-hbsag')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-hbsag">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">HBsAg</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-hbsag')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Antigen permukaan virus hepatitis B, dipakai untuk
+                        mendeteksi infeksi aktif hepatitis B.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Positif:</strong> Indikasi infeksi hepatitis B akut atau kronis.
+                        </li>
+                        <li><strong class="text-primary">Negatif:</strong> Tidak terdeteksinya antigen permukaan, tetapi
+                            harus dikonfirmasi dengan panel viral lain jika diperlukan.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-hbsag')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: HCV -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-hcv">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-hcv')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-hcv">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">HCV</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-hcv')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Tes antibodi atau antigen hepatitis C, digunakan
+                        untuk mendeteksi infeksi virus hepatitis C.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Positif:</strong> Menunjukkan paparan atau infeksi hepatitis C.
+                        </li>
+                        <li><strong class="text-primary">Negatif:</strong> Tidak menunjukkan antibodi atau antigen yang
+                            terdeteksi pada saat pemeriksaan.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-hcv')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Ns1 -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-ns1">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-ns1')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-ns1">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Ns1</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-ns1')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Deteksi antigen NS1 virus dengue yang berguna untuk
+                        diagnosis dini pada infeksi dengue akut.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Positif NS1:</strong> Indikasi infeksi dengue akut dalam
+                            hari-hari awal penyakit.</li>
+                        <li><strong class="text-primary">Negatif NS1:</strong> Tidak menutup kemungkinan infeksi jika
+                            pemeriksaan dilakukan setelah fase awal.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-ns1')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: IgG/IgM Dengue -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-iggigm-dengue">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-iggigm-dengue')">
+        </div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-iggigm-dengue">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">IgG/IgM Dengue</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-iggigm-dengue')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Pengujian antibodi IgM dan IgG terhadap virus
+                        dengue, membantu membedakan infeksi akut dari infeksi sebelumnya.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">IgM positif:</strong> Menunjukkan fase awal atau infeksi akut
+                            dengue.</li>
+                        <li><strong class="text-primary">IgG positif:</strong> Dapat mencerminkan infeksi masa lalu atau
+                            respons imunitas yang sudah berkembang.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-iggigm-dengue')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: RDT Malaria -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-rdt-malaria">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-rdt-malaria')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-rdt-malaria">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">RDT Malaria</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-rdt-malaria')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Tes cepat diagnostik yang mendeteksi antigen malaria
+                        dalam darah untuk konfirmasi infeksi Plasmodium.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Positif:</strong> Menunjukkan infeksi malaria aktif yang
+                            memerlukan penanganan segera.</li>
+                        <li><strong class="text-primary">Negatif:</strong> Mengurangi kemungkinan malaria, tetapi
+                            diagnosis lain tetap perlu dipertimbangkan.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-rdt-malaria')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Tes Kehamilan -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-tes-kehamilan">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-tes-kehamilan')">
+        </div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-tes-kehamilan">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Tes Kehamilan</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-tes-kehamilan')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Tes yang mendeteksi hormon human chorionic
+                        gonadotropin (hCG) untuk mengonfirmasi kehamilan.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-primary">Positif:</strong> Menunjukkan kemungkinan kehamilan, biasanya
+                            memerlukan konfirmasi lanjutan.</li>
+                        <li><strong class="text-error">Negatif:</strong> Menunjukkan tidak ada hormon kehamilan yang
+                            terdeteksi pada saat pengujian.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-tes-kehamilan')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Golongan Darah -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-golongan-darah">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-golongan-darah')">
+        </div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-golongan-darah">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Golongan Darah</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-tertiary-container/20 text-tertiary-fixed-dim rounded font-label-md text-label-md">Imunologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-golongan-darah')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Penentuan tipe golongan darah ABO dan rhesus,
+                        esensial untuk transfusi darah dan pengecekan kompatibilitas ibu-hamil.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-primary">Golongan darah diketahui:</strong> Memastikan kecocokan
+                            transfusi dan risiko isoimunisasi.</li>
+                        <li><strong class="text-error">Golongan darah tidak cocok:</strong> Dapat mengakibatkan reaksi
+                            transfusi hemolitik jika tidak ditangani.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-golongan-darah')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: GDS -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-gds">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-gds')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-gds">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Gula Darah Sewaktu (GDS)</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                        Klinik</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-gds')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Pengukuran kadar glukosa darah pada waktu
+                        pengambilan sampel tanpa memperhatikan kapan pasien terakhir makan.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">GDS tinggi:</strong> Mungkin menunjukkan hiperglikemia atau
+                            diabetes yang tidak terkontrol.</li>
+                        <li><strong class="text-primary">GDS normal:</strong> Menunjukkan kadar glukosa yang terkendali
+                            pada kondisi non-puasa.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-gds')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Asam Urat -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-asam-urat">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-asam-urat')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-asam-urat">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Asam Urat</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-secondary-container/20 text-secondary-fixed rounded font-label-md text-label-md">Kimia
+                        Klinik</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-asam-urat')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Pengukuran kadar asam urat dalam darah, berguna
+                        untuk menilai risiko gout dan gangguan metabolisme purin.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Asam urat tinggi:</strong> Dapat berhubungan dengan gout, batu
+                            ginjal, atau gangguan metabolik.</li>
+                        <li><strong class="text-primary">Asam urat normal:</strong> Menunjukkan metabolisme purin yang
+                            lebih terkontrol.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-asam-urat')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Hematokrit -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-hematokrit">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-hematokrit')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-hematokrit">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Hematokrit</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-hematokrit')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Proporsi volume darah yang terdiri dari sel darah
+                        merah. Hematokrit membantu menilai anemia, polisitemia, dan status hidrasi.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">Hematokrit rendah:</strong> Menunjukkan anemia atau kehilangan
+                            darah.</li>
+                        <li><strong class="text-primary">Hematokrit tinggi:</strong> Dapat terjadi pada dehidrasi atau
+                            polisitemia.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-hematokrit')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: LED -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-led">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-led')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-led">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Laju Endap Darah (LED)</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-led')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Mengukur kecepatan pengendapan sel darah merah dalam
+                        tabung selama satu jam sebagai indikator peradangan.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">LED tinggi:</strong> Dapat menunjukkan peradangan, infeksi, atau
+                            penyakit autoimun.</li>
+                        <li><strong class="text-primary">LED normal:</strong> Menunjukkan tidak adanya peradangan
+                            sistemik yang signifikan.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-led')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: MCV -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-mcv">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-mcv')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-mcv">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">MCV</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-mcv')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Mean corpuscular volume mengukur ukuran rata-rata
+                        sel darah merah untuk membantu klasifikasi anemia.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">MCV tinggi:</strong> Menandakan makrositik anemia atau defisiensi
+                            vitamin B12/folat.</li>
+                        <li><strong class="text-primary">MCV rendah:</strong> Menandakan mikro-sitik anemia, sering
+                            akibat kekurangan zat besi.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-mcv')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: MCH -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-mch">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-mch')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-mch">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">MCH</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-mch')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Mean corpuscular hemoglobin mengukur kandungan
+                        hemoglobin rata-rata per sel darah merah.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">MCH rendah:</strong> Menandakan anemia hipokromik seperti
+                            kekurangan zat besi.</li>
+                        <li><strong class="text-primary">MCH normal atau tinggi:</strong> Umumnya terlihat pada anemia
+                            makrositik.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-mch')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: MCHC -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-mchc">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-mchc')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-mchc">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">MCHC</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-mchc')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Mean corpuscular hemoglobin concentration mengukur
+                        konsentrasi hemoglobin dalam volume sel darah merah.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">MCHC rendah:</strong> Menunjukkan anemia hipokromik.</li>
+                        <li><strong class="text-primary">MCHC normal:</strong> Menunjukkan konsentrasi hemoglobin dalam
+                            sel darah merah yang seimbang.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-mchc')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: RDW -->
+    <div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300"
+        id="modal-rdw">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal('modal-rdw')"></div>
+        <div class="relative w-full max-w-2xl glass-modal rounded-xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300"
+            id="modal-content-rdw">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">RDW</h2>
+                    <span
+                        class="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary rounded font-label-md text-label-md">Hematologi</span>
+                </div>
+                <button
+                    class="p-2 text-on-surface-variant hover:text-on-surface rounded-full hover:bg-white/5 transition-colors"
+                    onclick="closeModal('modal-rdw')">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[716px]">
+                <div class="mb-8">
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Deskripsi</h4>
+                    <p class="text-on-surface-variant font-body-md">Red cell distribution width mengukur variasi ukuran
+                        sel darah merah, membantu mengevaluasi jenis anemia dan gangguan produksi sel darah.</p>
+                </div>
+                <div>
+                    <h4 class="font-title-md text-title-md text-on-surface mb-2">Signifikansi Klinis</h4>
+                    <ul class="list-disc pl-5 text-on-surface-variant space-y-2 font-body-md">
+                        <li><strong class="text-error">RDW tinggi:</strong> Menunjukkan heterogenitas ukuran sel darah
+                            merah, sering terlihat pada beberapa jenis anemia.</li>
+                        <li><strong class="text-primary">RDW normal:</strong> Menunjukkan variasi ukuran sel darah merah
+                            yang wajar.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-surface-container-lowest flex justify-end">
+                <button
+                    class="px-6 py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-fixed transition-colors"
+                    onclick="closeModal('modal-rdw')">Tutup Referensi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Script for interactivity -->
+    <script src="script.js"></script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</body>
+
+</html>

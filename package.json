@@ -1,0 +1,17 @@
+{
+  "name": "labpedia",
+  "version": "1.0.0",
+  "description": "LabPedia - Ensiklopedia medis dan kalkulator klinis",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.2.11"
+  }
+}
