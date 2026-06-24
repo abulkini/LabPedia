@@ -178,3 +178,9 @@
 
         // Inisialisasi keadaan awal kategori
         setActiveCategoryButton(activeCategory);
+
+        // Expose functions globally for inline HTML events
+        window.openModal = openModal;
+        window.closeModal = closeModal;
+        window.setCategory = setCategory;
+        window.toggleMobileNavMenu = toggleMobileNavMenu;

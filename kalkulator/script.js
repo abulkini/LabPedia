@@ -320,3 +320,10 @@
             text.innerText = cellType === 'wbc' ? 'Leukosit' : (cellType === 'rbc' ? 'Eritrosit' : (cellType === 'plt' ? 'Trombosit' : 'Manual'));
             icon.innerText = 'science';
         }
+
+        // Expose functions globally for inline HTML events
+        window.toggleMobileNavMenu = toggleMobileNavMenu;
+        window.calculateBMI = calculateBMI;
+        window.calculateEGFR = calculateEGFR;
+        window.calculateLDL = calculateLDL;
+        window.calculateCellCount = calculateCellCount;
