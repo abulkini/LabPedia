@@ -1,0 +1,16 @@
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
+
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        contact: resolve(__dirname, 'contact.html'),
+        privacy: resolve(__dirname, 'privacy.html'),
+        dict: resolve(__dirname, 'kamus/dict.html'),
+        calc: resolve(__dirname, 'kalkulator/calc.html'),
+      },
+    },
+  },
+});
